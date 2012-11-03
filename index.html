@@ -7,24 +7,30 @@
 
 	<script type="text/javascript">
 	$(document).ready(function(){
-		//alert("sdsd");
-		//crank();
 		setInterval("crank()", 5000);
 		});
 	
 	
 	function crank(){
+		var surl =  "http://g-tidezim.com/t2m/vomit.php";
+		var id = "content";
+		$.ajax({
+			url: surl,
+			data: {id: id},
+			dataType: "jsonp",
+			jsonp : "callback",
+			jsonpCallback: "jsonpcallback"
+			});	
 		
-		$.getJSON('http://g-tidezim.com/t2m/vomit.php',function(data){
-				$('#content').empty();
-				$.each(data, function(entryIndex, entry){
-					var html = '<li>' + entry['sender'] + ' transferred '+ entry['amount'] + '</li>';
-					$('#content').prepend(html);
-				});						   
-			});
 		$("#chant").append("# ");
 		}
-			
+	function jsonpcallback(data) { 
+		$('#content').empty();
+		$.each(data, function(entryIndex, entry){
+			var html = '<li>' + entry['sender'] + ' transferred '+ entry['amount'] + '</li>';
+			$('#content').prepend(html);
+		});						   
+	}
 	</script>
 	<style type="text/css">
 		#contentw {
@@ -59,13 +65,13 @@
 	</div>
 	<div>
 		<p>Transfers below. Refreshing every 5 seconds. # per refresh <div id="chant"></div></p>
-		<ul id='content'>
+		<ul  id='content'>
 			
 		</ul>
 	</div>
 	<div style="margin-top: 20px">
 		<h2>Comments</h2>
-			<!-- disqus -->
+		<!-- disqus -->
 			<div id="disqus_thread"></div>
 				<script type="text/javascript">
 					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -79,7 +85,6 @@
 					})();
 				</script>
 			<!-- end disqus -->
-
 	</div>
 </div>
 </head>
