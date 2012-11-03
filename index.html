@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EcoCash For Online Payments</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//alert("sdsd");
+		//crank();
+		setInterval("crank()", 5000);
+		});
+	
+	
+	function crank(){
+		
+		$.getJSON('http://g-tidezim.com/t2m/vomit.php',function(data){
+				$('#content').empty();
+				$.each(data, function(entryIndex, entry){
+					var html = '<li>' + entry['sender'] + ' transferred '+ entry['amount'] + '</li>';
+					$('#content').prepend(html);
+				});						   
+			});
+		$("#chant").append("# ");
+		}
+			
+	</script>
+	<style type="text/css">
+		#contentw {
+			width: 70%;
+			margin: 0px auto;
+			box-shadow: 0px 2px 2px #000;
+			border: 1px solid #000 dashed;
+			background-color: #FFF;
+			font-family: helvetica;
+			padding: 10px;
+			}
+	</style>
+</head>
+<body style="background-color: gray">	
+
+<div id="contentw">
+	<div style='text-align: center'>
+		<h1>[Proof Of Concept] Accepting EcoCash Payments Online</h1>
+		<p>
+				Just a proof of concept that it can be done, and efficiently so.
+		<p>
+		This is to illustrate receipt of transaction. All the necessary info is captured and stored in a submissions table. There's a million ways to make sense of the data once it's there, and a number of ways to have someone prove that the transfer is theirs such as by way of inputting the approval/transaction code that you and them get when the transfer's made. Then you can store that "waiting-to-be-claimed code" in the user's session and when they refresh or if that does happen auto like here and a match is found.....um, ok. You get the idea.
+		</p>
+		<p>Plus you're gonna want to use your Merchant account, not a phone number. That opens an interesting can of worms. The data is transferred securely between the device and the site that receives notification of a new transaction.
+		</p>
+		<p>& i'm using my personal number (0772748665) because i'm not a business (Proof of concept). So happily transfer, see how fast the update comes, tell me what you think. I'll transfer your money back to you...maybe ;)
+
+		</p>
+		<p>Sorry, i won't apologize for the ugly HTML markup</p>
+		<p><b>NB:</b><i>Someone dared us to use a 3G connection instead to throw data around so that we see how fast it can be, as a worst-case scenario speed. Try and see for yourself.</i></p>
+		<p><b>PS:</b><i>By transferring you agree that you won't take me to court if i use your transferred funds. Or send "boys" over ^_^</i></p>
+	</div>
+	<div>
+		<p>Transfers below. Refreshing every 5 seconds. # per refresh <div id="chant"></div></p>
+		<ul id='content'>
+			
+		</ul>
+	</div>
+	<div style="margin-top: 20px">
+		<h2>Comments</h2>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'example'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+	</div>
+</div>
+</head>
