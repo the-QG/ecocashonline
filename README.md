@@ -11,6 +11,10 @@ Then on the "legality" of this. I'm not sure where we are treading into someone'
 ### Updates/Questions
 Just created https://groups.google.com/d/forum/helpingzimstartups
 
+### Any plans for the future?
+
+We proved a concept. We plan to integrate it with our websites online. Not sure we can call it a product in itself for 3rd parties yet.
+
 ## About the Alpha Demo SDK
 The DEMO SDK is to help you understand and get started. It routes transfers to our servers which then forward to your server as will be explained below. It lacks much of the functionality of the final. Things such as backing-up data, exporting the databases, reconciling the SMS inbox and the application's database say after a system failure and cleaning the displayed data to keep the applcation performing as fast as it should. It adds administrative tasks, auditing tasks, collects more data about the transaction (phone number) and has disaster recovery. The DEMO one works just as well, it only lacks these house-keeping functionalities and some data about a transaction.
 
