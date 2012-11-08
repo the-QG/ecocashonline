@@ -22,12 +22,21 @@ The DEMO SDK is to help you understand and get started. It routes transfers to o
 Just created https://groups.google.com/d/forum/helpingzimstartups
 
 ## Setting things up (Developers only)
-The SDk has 3 files. A PHP file, an Android Application and an SQL file. You have to import the SQL file into your database. The other configurations are explained in the index.php file.
+The SDk has 3 files. A PHP file, an Android Application and an SQL file. 
 
-The critical things you need from us are a Merchant Key & a Secret Key. Email to sam.takunda@gmail.com with subject "Request For API Access" to get these which are unique to you. The Secret Key should never be displayed in any way or shared in any way on your website. Our DEMO API uses a REST interface and authenticates using these keys and SHA265 HASH digests. You also need to put the index.php in a location on your website which you give to use when requesting API keys, preferrably in its own folder so that the url is along the lines of http://example.com/whatevercallbackyou/choose
+### Database
+You have to import the SQL file into your database. This means opening the SQL file and on the line for the database name you enter between the quotes an appropriate one otherwise it will not import successfully.
+You then need to enter these same details in the index.php file which has a section explaining how things work.
 
-You then install the Android APK on an Android Device which is fast, has reasonable free storage and is on a fast network such as your secured home/work WiFi. In the menu select preferences and here you input your API keys and check the "Enable Submissions" option when you are ready to communicate with our servers.
+### API Keys (Public & Secret)
+The critical things you need from us are a Merchant Key & a Secret Key. Email to sam.takunda@gmail.com with subject "Request For API Access" to get these which are unique to you. The Secret Key should never be displayed in any way or shared in any way on your website. Our DEMO API uses a REST interface and authenticates against these keys and HASH digests.
+You also need to put the index.php in a location on your website which you give to use when requesting API keys, preferrably in its own folder so that the url is along the lines of http://example.com/whatevercallbackyou/choose
 
+### Android Application
+
+You then install the Android APK on an Android Device which is fast, has reasonable free storage and is on a fast network such as your secured home/work WiFi. In the menu select preferences and here you input your public & secret API keys which we would have provided and check the "Enable Submissions" option when you are ready to communicate with our servers.
+
+### ...
 The reason mobile banking providers worldwide offer merchant numbers is to mask away the phone number that receives the funds because once it is known you can get fake transfers from a novice user. The DEMO looks out for transfer messages without considering the origin they are from. This is to help you test.
 
 Also make sure your url is valid. When our server receives a transfer it attempts there and then to route it to yours, if that fails (timeout maybe) there's a separate daemon that keeps retrying but at the moment we've put that daemon down because all so far have gone through. It's your responsibilty with this DEMO to make sure you're connected.
