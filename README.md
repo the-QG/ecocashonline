@@ -19,7 +19,7 @@ We proved a concept with our fellow dev community. We intend to use it on our we
 The DEMO SDK is to help you understand and get started. It routes transfers to our servers which then forward to your server as will be explained below. It lacks much of the functionality of the final. Things such as backing-up data, exporting the databases, reconciling the SMS inbox and the application's database say after a system failure and cleaning the displayed data to keep the applcation performing as fast as it should. It adds administrative tasks, auditing tasks, collects more data about the transaction (phone number) and has disaster recovery. The DEMO one works just as well, it only lacks these house-keeping functionalities and some data about a transaction.
 
 ### Updates
-We're setting up a mailing list for the developers
+Just created https://groups.google.com/d/forum/helpingzimstartups
 
 ## Setting things up (Developers only)
 The SDk has 3 files. A PHP file, an Android Application and an SQL file. You have to import the SQL file into your database. The other configurations are explained in the index.php file.
