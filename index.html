@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Ecocash Online : Accepting EcoCash transfers online." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ecocash Online</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/takunda/ecocashonline">View on GitHub</a>
+
+          <h1 id="project_title">Ecocash Online</h1>
+          <h2 id="project_tagline">Accepting EcoCash transfers online.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/takunda/ecocashonline/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/takunda/ecocashonline/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>[POC] Accepting EcoCash Payments Online</h1>
+
+<p>So we got more attention than we vouched for from developers who wanted to try out the payment--which isn't a bad thing :)--and we put together simple DEMO SDK for the developers.</p>
+
+<h2>Clearing some issues</h2>
+
+<p>This isn't an open-source project. The Open Source parts of it are the merchant libraries and integrations for Wordpress&amp; Joomla that we're working on - not the core of the system.</p>
+
+<p>Then on the "legality" of this. I'm not sure where we are treading into someone'e house so to speak. Before now, you'd fill a form on a website, get an order number, transfer funds, claim your order by sending your approval code over email/call a website's support/sales. So instead of that email, your phone now reads the code, matches it with the orders database and does whatever has to be done after. I'm sure the term hack made some to think we found a way into EcoCash servers and are now funneling data from it. Oh, and Econet makes money off every transaction you make in case you thought we hacked that too :D</p>
+
+<h3>Updates/Questions</h3>
+
+<p>Just created <a href="https://groups.google.com/d/forum/helpingzimstartups">https://groups.google.com/d/forum/helpingzimstartups</a></p>
+
+<h3>Any plans for the future?</h3>
+
+<p>We proved a concept with our fellow dev community. We intend to use it on our websites and our partners' first. Not sure we can call it a product in itself for 3rd parties yet.</p>
+
+<h2>About the Alpha Demo SDK</h2>
+
+<p>The DEMO SDK, available on request, is to help you understand and get started. It routes transfers to our servers which then forward to your server as will be explained below. It lacks much of the functionality of the final. Things such as backing-up data, exporting the databases, reconciling the SMS inbox and the application's database say after a system failure and cleaning the displayed data to keep the applcation performing as fast as it should. It adds administrative tasks, auditing tasks, collects more data about the transaction (phone number) and has disaster recovery. The DEMO one works just as well, it only lacks these house-keeping functionalities and some data about a transaction.</p>
+
+<h3>Updates</h3>
+
+<p>Just created <a href="https://groups.google.com/d/forum/helpingzimstartups">https://groups.google.com/d/forum/helpingzimstartups</a></p>
+
+<h2>Setting things up (Developers only)</h2>
+
+<p>The SDk has 3 files. A PHP file, an Android Application and an SQL file. </p>
+
+<h3>Database</h3>
+
+<p>You have to import the SQL file into your database. This means opening the SQL file and on the line for the database name you enter between the quotes an appropriate one otherwise it will not import successfully.
+You then need to enter these same details in the index.php file which has a section explaining how things work.</p>
+
+<h3>API Keys (Public &amp; Secret)</h3>
+
+<p>The critical things you need from us are a Merchant Key &amp; a Secret Key. Email to <a href="mailto:sam.takunda@gmail.com">sam.takunda@gmail.com</a> with subject "Request For API Access" to get these which are unique to you. The Secret Key should never be displayed in any way or shared in any way on your website. Our DEMO API uses a REST interface and authenticates against these keys and HASH digests.
+You also need to put the index.php in a location on your website which you give to use when requesting API keys, preferrably in its own folder so that the url is along the lines of <a href="http://example.com/whatevercallbackyou/choose">http://example.com/whatevercallbackyou/choose</a></p>
+
+<h3>Android Application</h3>
+
+<p>You then install the Android APK on an Android Device which is fast, has reasonable free storage and is on a fast network such as your secured home/work WiFi. In the menu select preferences and here you input your public &amp; secret API keys which we would have provided and check the "Enable Submissions" option when you are ready to communicate with our servers.</p>
+
+<h3>...</h3>
+
+<p>The reason mobile banking providers worldwide offer merchant numbers is to mask away the phone number that receives the funds because once it is known you can get fake transfers from a novice user. The DEMO looks out for transfer messages without considering the origin they are from. This is to help you test.</p>
+
+<p>Also make sure your url is valid. When our server receives a transfer it attempts there and then to route it to yours, if that fails (timeout maybe) there's a separate daemon that keeps retrying but at the moment we've put that daemon down because all so far have gone through. It's your responsibilty with this DEMO to make sure you're connected.</p>
+
+<h3>Known Issues</h3>
+
+<p>The DEMO doesn't force times to our timezone, so it depends on your device.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ecocash Online maintained by <a href="https://github.com/takunda">takunda</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
