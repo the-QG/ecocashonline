@@ -1,10 +1,13 @@
 [POC] Accepting EcoCash Payments Online
 =======
 
+### Two years later
+Moved code to Pay4App's organization account
+
 So we got more attention than we vouched for from developers who wanted to try out the payment--which isn't a bad thing :)--and we put together simple DEMO SDK for the developers.
 
 ## Clearing some issues
-This isn't an open-source project. The Open Source parts of it are the merchant libraries and integrations for Wordpress& Joomla that we're working on - not the core of the system.
+This is a 99.9% open-source project. The Open Source parts of it are the merchant libraries and integrations for Wordpress& Joomla that we're working on - not the core of the system.
 
 Then on the "legality" of this. I'm not sure where we are treading into someone'e house so to speak. Before now, you'd fill a form on a website, get an order number, transfer funds, claim your order by sending your approval code over email/call a website's support/sales. So instead of that email, your phone now reads the code, matches it with the orders database and does whatever has to be done after. I'm sure the term hack made some to think we found a way into EcoCash servers and are now funneling data from it. Oh, and Econet makes money off every transaction you make in case you thought we hacked that too :D
 
